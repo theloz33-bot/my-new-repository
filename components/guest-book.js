@@ -19,9 +19,10 @@ class GuestBook extends HTMLElement {
             message: messageInput.value,
             timestamp: new Date().toLocaleString(),
         };
-        this.entries.push(newEntry);
+        this.entries.unshift(newEntry); // Add to the beginning
         localStorage.setItem('guestbook-entries', JSON.stringify(this.entries));
         this.render();
+        this.shadowRoot.querySelector('form').reset();
     }
 
     render() {
@@ -29,61 +30,62 @@ class GuestBook extends HTMLElement {
             <style>
                 :host {
                     display: block;
-                    margin-top: 2rem;
-                    padding: 1.5rem;
-                    background-color: #fff;
+                    background-color: var(--card-background-color, #fff);
                     border-radius: 0.5rem;
-                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    box-shadow: var(--card-shadow, 0 4px 8px rgba(0,0,0,0.1));
+                    padding: calc(var(--spacing-unit, 1rem) * 2);
+                    margin-top: calc(var(--spacing-unit, 1rem) * 2);
                 }
                 h3 {
-                    margin-top: 0;
+                    font-size: var(--font-size-h3, 1.25rem);
+                    font-weight: var(--font-weight-bold, 700);
+                    color: var(--primary-color, #007bff);
+                    margin: 0 0 calc(var(--spacing-unit, 1rem) * 1.5) 0;
                 }
                 form {
-                    margin-bottom: 1rem;
-                }
-                input, textarea {
-                    width: 100%;
-                    padding: 0.5rem;
-                    margin-bottom: 0.5rem;
-                    border: 1px solid #ccc;
-                    border-radius: 0.25rem;
-                    box-sizing: border-box;
-                }
-                button {
-                    padding: 0.5rem 1rem;
-                    background-color: var(--primary-color);
-                    color: var(--background-color);
-                    border: none;
-                    border-radius: 0.25rem;
-                    cursor: pointer;
+                    margin-bottom: calc(var(--spacing-unit, 1rem) * 2);
                 }
                 ul {
                     list-style: none;
                     padding: 0;
+                    margin: 0;
                 }
                 li {
                     border-top: 1px solid #eee;
-                    padding: 1rem 0;
+                    padding: calc(var(--spacing-unit, 1rem) * 1.5) 0;
+                }
+                li:first-child {
+                    border-top: none;
+                    padding-top: 0;
+                }
+                .entry-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: calc(var(--spacing-unit, 1rem) * 0.5);
                 }
                 .entry-name {
-                    font-weight: bold;
+                    font-weight: var(--font-weight-medium, 500);
+                    color: var(--text-color, #333);
                 }
-                 .entry-timestamp {
+                .entry-timestamp {
                     font-size: 0.8rem;
                     color: #777;
-                    margin-left: 0.5rem;
+                }
+                p {
+                    margin: 0;
                 }
             </style>
             <h3>방명록</h3>
             <form>
                 <input type="text" id="name" placeholder="이름" required>
-                <textarea id="message" placeholder="메시지를 남겨주세요." required></textarea>
+                <textarea id="message" placeholder="메시지를 남겨주세요." rows="4" required></textarea>
                 <button type="submit">작성</button>
             </form>
             <ul>
                 ${this.entries.map(entry => `
                     <li>
-                        <div>
+                        <div class="entry-header">
                             <span class="entry-name">${entry.name}</span>
                             <span class="entry-timestamp">${entry.timestamp}</span>
                         </div>

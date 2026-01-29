@@ -1,32 +1,59 @@
-# Project Blueprint: My Awesome Blog
+# Project Blueprint: 정치 시사 블로그
 
-## Overview
+## 1. 개요
 
-This document outlines the plan for creating a modern, responsive, and easy-to-maintain blog using Web Components, modern CSS, and vanilla JavaScript.
+이 문서는 웹 컴포넌트, 최신 CSS 및 순수 JavaScript를 사용하여 현대적이고 반응이 빠르며 유지 관리가 쉬운 블로그를 만들기 위한 계획을 설명합니다.
 
-## Core Features
+## 2. 구현된 기능
 
-*   **Blog Post Component:** A reusable Web Component (`<blog-post>`) will be created to display individual blog posts. This component will encapsulate the post's title, content, and styling.
-*   **Modern CSS:** The blog will be styled using modern CSS features, including CSS variables for theming, container queries for responsive components, and logical properties for better internationalization support.
-*   **JavaScript Modules:** The JavaScript code will be organized into ES Modules for better maintainability and code organization.
+*   **웹 컴포넌트 기반 블로그 게시물:** 개별 블로그 게시물을 표시하기 위해 재사용 가능한 `<blog-post>` 웹 컴포넌트를 만들었습니다.
+*   **방명록 기능:** 사용자가 이름과 메시지를 남길 수 있는 `<guest-book>` 웹 컴포넌트를 추가했습니다. 데이터는 브라우저의 로컬 저장소에 저장됩니다.
+*   **동적 콘텐츠 렌더링:** `main.js`에서 정치/시사 관련 주제의 블로그 데이터를 동적으로 렌더링합니다.
+*   **기본 스타일링:** CSS 변수를 사용하여 기본적인 레이아웃과 스타일을 적용했습니다.
 
-## File Structure
+## 3. 파일 구조
 
 ```
 .
+├── firebase.json
+├── .firebaserc
 ├── blueprint.md
 ├── index.html
 ├── style.css
 ├── main.js
 └── components
-    └── blog-post.js
+    ├── blog-post.js
+    └── guest-book.js
 ```
 
-## Development Plan
+## 4. 현재 계획: 완성도 높이기 (시각적 디자인 및 UX 개선)
 
-1.  **HTML Structure:** Create the basic HTML structure in `index.html`.
-2.  **CSS Styling:** Create the initial CSS styles in `style.css`, including CSS variables for the color scheme and typography.
-3.  **Blog Post Component:** Create the `<blog-post>` Web Component in `components/blog-post.js`.
-4.  **JavaScript Main:** Import and register the `<blog-post>` component in `main.js`.
-5.  **Content:** Add some example blog posts to `index.html`.
-6.  **Deployment:** Deploy the blog to a static hosting service.
+현재 기능적으로 동작하는 블로그를 시각적으로 더 매력적이고 사용자 친화적으로 만들기 위한 개선 작업을 진행합니다.
+
+### 4.1. 목표
+
+*   **모던하고 세련된 디자인 적용:** 최신 디자인 트렌드를 반영하여 색상, 폰트, 레이아웃을 전면적으로 개선합니다.
+*   **향상된 사용자 경험(UX):** 사용자가 콘텐츠를 쉽게 소비하고 서비스와 상호작용할 수 있도록 시각적 계층 구조와 인터랙션을 강화합니다.
+*   **코드 품질 향상:** CSS 변수 체계를 고도화하여 유지보수성을 높입니다.
+
+### 4.2. 상세 실행 계획
+
+1.  **`style.css` 개선:**
+    *   **색상 팔레트 확장:** 생동감 있고 깊이 있는 색상 팔레트를 정의하여 적용합니다.
+    *   **타이포그래피 개선:** 영문/한글 폰트를 지정하고, 제목, 본문 등 위계에 맞는 폰트 크기와 굵기를 설정하여 가독성을 높입니다.
+    *   **전체 레이아웃 개선:** 헤더, 메인 콘텐츠 영역의 레이아웃을 재구성하여 균형감과 전문성을 더합니다.
+    *   **배경 및 질감 추가:** 배경에 미세한 노이즈 텍스처를 추가하여 고급스러운 느낌을 줍니다.
+    *   **공통 스타일 정의:** 버튼, 입력 필드 등 공통 UI 요소의 스타일을 미리 정의합니다.
+
+2.  **웹 컴포넌트 스타일 업데이트 (`blog-post.js`, `guest-book.js`):**
+    *   **그림자 효과 적용:** 각 컴포넌트(게시물, 방명록)에 부드럽고 깊이 있는 `box-shadow`를 적용하여 입체감을 부여합니다.
+    *   **인터랙티브 요소 스타일링:** 방명록의 입력 필드와 버튼에 `:hover`, `:focus` 상태 스타일을 추가하여 시각적 피드백을 제공합니다.
+    *   **내부 레이아웃 개선:** 컴포넌트 내부 요소들의 간격과 배치를 조정하여 가독성과 균형감을 높입니다.
+
+3.  **`index.html` 구조 개선:**
+    *   필요에 따라 아이콘 폰트 라이브러리(예: Font Awesome)를 추가하여 아이콘을 활용할 수 있는 기반을 마련합니다.
+    *   시맨틱 태그를 검토하고 보강합니다.
+
+4.  **최종 검토 및 배포:**
+    *   모든 변경 사항이 의도대로 적용되었는지 확인합니다.
+    *   개선된 버전의 블로그를 Firebase에 다시 배포합니다.
