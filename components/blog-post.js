@@ -5,33 +5,53 @@ class BlogPost extends HTMLElement {
     }
 
     connectedCallback() {
+        const title = this.getAttribute('title');
+        const date = this.getAttribute('date');
+        const articleId = this.getAttribute('article-id');
+        
+        const articleUrl = `article.html?id=${articleId}`;
+
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
                     display: block;
-                    background-color: var(--card-background-color, #fff);
-                    border-radius: 0.5rem;
-                    box-shadow: var(--card-shadow, 0 4px 8px rgba(0,0,0,0.1));
-                    margin-bottom: calc(var(--spacing-unit, 1rem) * 2);
-                    padding: calc(var(--spacing-unit, 1rem) * 1.5);
-                    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                    background-color: #fff;
+                    padding: 25px;
+                    margin-bottom: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                    transition: transform 0.2s, box-shadow 0.2s;
                 }
                 :host(:hover) {
                     transform: translateY(-5px);
-                    box-shadow: 0 15px 25px rgba(0,0,0,0.12), 0 5px 10px rgba(0,0,0,0.1);
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
                 }
                 h2 {
-                    font-size: var(--font-size-h2, 1.75rem);
-                    font-weight: var(--font-weight-bold, 700);
-                    color: var(--primary-color, #007bff);
-                    margin: 0 0 var(--spacing-unit, 1rem) 0;
+                    margin-top: 0;
+                    font-size: 1.8em;
+                    font-weight: 700;
+                }
+                h2 a {
+                    text-decoration: none;
+                    color: #2c3e50;
+                }
+                h2 a:hover {
+                    text-decoration: underline;
+                }
+                .date {
+                    font-size: 0.9em;
+                    color: #7f8c8d;
+                    margin-bottom: 15px;
                 }
                 ::slotted(p) {
-                    font-size: var(--font-size-p, 1rem);
+                    color: #555;
+                    font-size: 1.1em;
                     line-height: 1.7;
                 }
             </style>
-            <h2>${this.getAttribute('title')}</h2>
+            
+            <h2><a href="${articleUrl}">${title}</a></h2>
+            <div class="date">${date}</div>
             <slot></slot>
         `;
     }
