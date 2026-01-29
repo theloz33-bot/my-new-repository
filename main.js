@@ -21,6 +21,10 @@ const posts = [
 posts.forEach(post => {
     const blogPost = document.createElement('blog-post');
     blogPost.setAttribute('title', post.title);
-    blogPost.innerHTML = post.content;
+    
+    const contentParagraph = document.createElement('p');
+    contentParagraph.textContent = post.content;
+    blogPost.appendChild(contentParagraph);
+    
     app.appendChild(blogPost);
 });
