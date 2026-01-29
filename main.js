@@ -1,25 +1,21 @@
-import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
+import './components/blog-post.js';
 
-// Basic Three.js setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('gemini-canvas'), alpha: true });
-renderer.setSize( window.innerWidth, window.innerHeight );
+const app = document.getElementById('app');
 
-// Placeholder for 3D model
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const posts = [
+    {
+        title: '나의 첫 블로그 게시물',
+        content: '이것은 나의 첫 블로그 게시물의 내용입니다.'
+    },
+    {
+        title: '나의 두 번째 블로그 게시물',
+        content: '이것은 나의 두 번째 블로그 게시물의 내용입니다.'
+    }
+];
 
-camera.position.z = 5;
-
-// Animation loop
-function animate() {
-	requestAnimationFrame( animate );
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
-	renderer.render( scene, camera );
-}
-
-animate();
+posts.forEach(post => {
+    const blogPost = document.createElement('blog-post');
+    blogPost.setAttribute('title', post.title);
+    blogPost.innerHTML = post.content;
+    app.appendChild(blogPost);
+});

@@ -1,17 +1,32 @@
-# Project Blueprint
+# Project Blueprint: My Awesome Blog
 
-## Project Overview
+## Overview
 
-This project is a web-based application that allows users to interact with a Gemini AI model. The application will provide a user-friendly interface for sending requests to the Gemini API and displaying the results. The project will be built using modern web technologies, including HTML, CSS, and JavaScript. It will also leverage the Firebase platform for hosting and other backend services.
+This document outlines the plan for creating a modern, responsive, and easy-to-maintain blog using Web Components, modern CSS, and vanilla JavaScript.
 
-## Implemented Features
+## Core Features
 
-*   **Initial Project Setup:** Basic HTML, CSS, and JavaScript files have been created.
-*   **Blueprint:** This `blueprint.md` file has been created to track the project's progress.
+*   **Blog Post Component:** A reusable Web Component (`<blog-post>`) will be created to display individual blog posts. This component will encapsulate the post's title, content, and styling.
+*   **Modern CSS:** The blog will be styled using modern CSS features, including CSS variables for theming, container queries for responsive components, and logical properties for better internationalization support.
+*   **JavaScript Modules:** The JavaScript code will be organized into ES Modules for better maintainability and code organization.
 
-## Plan
+## File Structure
 
-1.  Create a basic HTML structure in `index.html`.
-2.  Add some initial styling to `style.css`.
-3.  Add placeholder content and basic DOM manipulation logic to `main.js`.
-4.  Link the CSS and JavaScript files to the HTML file.
+```
+.
+├── blueprint.md
+├── index.html
+├── style.css
+├── main.js
+└── components
+    └── blog-post.js
+```
+
+## Development Plan
+
+1.  **HTML Structure:** Create the basic HTML structure in `index.html`.
+2.  **CSS Styling:** Create the initial CSS styles in `style.css`, including CSS variables for the color scheme and typography.
+3.  **Blog Post Component:** Create the `<blog-post>` Web Component in `components/blog-post.js`.
+4.  **JavaScript Main:** Import and register the `<blog-post>` component in `main.js`.
+5.  **Content:** Add some example blog posts to `index.html`.
+6.  **Deployment:** Deploy the blog to a static hosting service.
