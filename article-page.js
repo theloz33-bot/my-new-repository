@@ -12,7 +12,7 @@ const renderArticle = () => {
     const article = posts.find(p => p.id === articleId);
 
     if (article) {
-        document.title = `${article.title} - 정치 시사 블로그`; // Update the page title
+        document.title = `${article.title} - 코리안 뉴 데스크`; // Update the page title
         articleContainer.innerHTML = `
             <style>
                 .article-header {
