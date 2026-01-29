@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baseball Blog</title>
+    <title>Gemini AI Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Baseball Blog</h1>
+        <nav>
+            <a href="#" class="logo">Gemini AI</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
-        <blog-post title="The Art of Pitching" author="Casey" date="2024-07-25">
-            <p>Pitching is more than just throwing a ball. It's a strategic battle between the pitcher and the batter. A successful pitcher needs a combination of physical talent, mental fortitude, and a deep understanding of the game.</p>
-        </blog-post>
-        <blog-post title="The History of Baseball" author="Mickey" date="2024-07-24">
-            <p>Baseball's origins are a bit murky, but the modern game as we know it began to take shape in the mid-19th century. It has since become a beloved pastime in many countries around the world.</p>
-        </blog-post>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Explore the Power of Gemini</h1>
+                <p>A next-generation AI model for a new era of creativity and productivity.</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder for 3D model -->
+                <canvas id="gemini-canvas"></canvas>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Baseball Blog</p>
-    </footer>
-    <script src="main.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.skypack.dev/three@0.132.2"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

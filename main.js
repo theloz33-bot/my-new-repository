@@ -1,31 +1,25 @@
-class BlogPost extends HTMLElement {
-  constructor() {
-    super();
-    const shadow = this.attachShadow({ mode: 'open' });
+import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
 
-    const title = this.getAttribute('title') || 'No Title';
-    const author = this.getAttribute('author') || 'Anonymous';
-    const date = this.getAttribute('date') || 'No Date';
+// Basic Three.js setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('gemini-canvas'), alpha: true });
+renderer.setSize( window.innerWidth, window.innerHeight );
 
-    shadow.innerHTML = `
-      <style>
-        h2 {
-          margin: 0 0 0.5rem;
-          color: #003366;
-        }
-        .meta {
-          font-size: 0.8rem;
-          color: #666;
-          margin-bottom: 1rem;
-        }
-      </style>
-      <div>
-        <h2>${title}</h2>
-        <div class="meta">By ${author} on ${date}</div>
-        <slot></slot>
-      </div>
-    `;
-  }
+// Placeholder for 3D model
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+// Animation loop
+function animate() {
+	requestAnimationFrame( animate );
+	cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
+	renderer.render( scene, camera );
 }
 
-customElements.define('blog-post', BlogPost);
+animate();
