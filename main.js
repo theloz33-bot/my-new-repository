@@ -2,6 +2,7 @@ import './components/blog-post.js';
 import './components/guest-book.js';
 
 const app = document.getElementById('app');
+const guestbookContainer = document.getElementById('guestbook-container');
 
 const posts = [
     {
@@ -28,3 +29,6 @@ posts.forEach(post => {
     
     app.appendChild(blogPost);
 });
+
+const guestBook = document.createElement('guest-book');
+guestbookContainer.appendChild(guestBook);
