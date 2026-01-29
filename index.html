@@ -1,14 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Blog</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <h1>Baseball Blog</h1>
+    </header>
+    <main>
+        <blog-post title="The Art of Pitching" author="Casey" date="2024-07-25">
+            <p>Pitching is more than just throwing a ball. It's a strategic battle between the pitcher and the batter. A successful pitcher needs a combination of physical talent, mental fortitude, and a deep understanding of the game.</p>
+        </blog-post>
+        <blog-post title="The History of Baseball" author="Mickey" date="2024-07-24">
+            <p>Baseball's origins are a bit murky, but the modern game as we know it began to take shape in the mid-19th century. It has since become a beloved pastime in many countries around the world.</p>
+        </blog-post>
+    </main>
+    <footer>
+        <p>&copy; 2024 Baseball Blog</p>
+    </footer>
+    <script src="main.js"></script>
 </body>
 </html>
